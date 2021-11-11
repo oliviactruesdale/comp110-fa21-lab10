@@ -11,9 +11,21 @@ Authors:
 
 
 def get_election_results(election_filename):
-    """ Replace this with a docstring comment with the correct format. """
 
-    return None  # replace this line with your implemenation
+    """ Replace this with a docstring comment with the correct format. """
+    regions = {}
+    file = open(election_filename, "r")
+    file.readline()
+    for line in file:
+        x = line.split(",")
+        states = x[0]
+        votes = (int(x[1]), int(x[2]), int(x[3]))
+        regions[states] = votes 
+    file.close()
+    return regions
+    
+
+
 
 
 def main():
